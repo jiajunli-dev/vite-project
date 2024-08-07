@@ -8,7 +8,7 @@ module.exports = {
     'prettier',
     'plugin:prettier/recommended',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'tailwind.config.js'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'tailwind.config.js', 'vite.config.ts'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.app.json',
@@ -20,5 +20,6 @@ module.exports = {
       { allowConstantExport: true },
     ],
     'import/extensions': 'off',
+    'plugin:react/jsx-runtime': 'extends'
   },
 };
