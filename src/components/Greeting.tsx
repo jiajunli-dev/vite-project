@@ -1,27 +1,38 @@
-import { ChangeEvent, useState, FC } from 'react';
+import { ChangeEvent, FC, useState } from 'react';
 
 type GreetingProps = {
-  greeting: string;
-  fs: (event: ChangeEvent<HTMLInputElement>) => void;
-}
+  text: string;
+};
 
-const Greeting = () => {
-  const [greeting, setGreeting] = useState('Hello user!');
+const App: FC = () => {
+  const [greeting, setGreeting] = useState('Welcome');
+  const [isGreeting, setIsGreeting] = useState(true);
 
-  const changeGreeting = (event: ChangeEvent<HTMLInputElement>) => setGreeting(event.target.value);
+  const change = (event: ChangeEvent<HTMLInputElement>): void => {
+    setGreeting(event.target.value);
+  };
 
-  return (
-    <Headline greeting={greeting} fs={changeGreeting} />
-  );
-}
+  const toggle = (): void => {
+    setIsGreeting(!isGreeting);
+  };
 
-const Headline: FC<GreetingProps> = ({greeting, fs}) => {
   return (
     <div>
-      <h1>{greeting}</h1>
-      <input type="text" className="border" value={greeting} onChange={fs} />
+      <ToggleButton fs={toggle} />
+
+      <input type="text" value={greeting} onChange={change} />
+
+      {isGreeting ? <Greeting text={greeting} /> : null}
     </div>
   );
-}
+};
 
-export default Greeting;
+const Greeting: FC<GreetingProps> = ({ text }) => {
+  return <h1>{text}</h1>;
+};
+
+const ToggleButton: FC<{ fs: () => void }> = ({ fs }) => {
+  return <button onClick={fs}>Toggle</button>;
+};
+
+export default App;
