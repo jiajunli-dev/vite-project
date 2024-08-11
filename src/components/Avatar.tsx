@@ -1,18 +1,5 @@
-import React from 'react';
-
-interface DisplayAvatarProps {
-  imgUrl: string;
-}
-
-const DisplayAvatar: React.FC<DisplayAvatarProps> = ({ imgUrl = '' }) => {
-  const [count, setCount] = React.useState(0);
-  
-  return (
-    <>
-      <img src={imgUrl} alt="avatar" className="w-3/12" />
-      <h1>doodoo</h1>
-    </>
-  );
+const Avatar = (): JSX.Element => {
+  return <img src="https://cdn4.iconfinder.com/data/icons/flat-brand-logo-2/512/nike-512.png" alt="Avatar" />;
 };
 
-export default DisplayAvatar;
+export default Avatar;

@@ -8,9 +8,12 @@ import App from './components/Greeting';
 import DisplayGreeting from './components/toggleGreeting';
 import Conditional from './components/Conditional';
 import Notification, { AlertType } from './components/Notification';
+import Avatar from './components/Avatar';
+import Card from './components/Composition';
+import DisplayItem from './components/DisplayItem';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Notification type={AlertType.Success} message="This is a success message" />
+    <DisplayItem />
   </React.StrictMode>,
 );
