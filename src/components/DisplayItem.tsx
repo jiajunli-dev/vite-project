@@ -1,15 +1,12 @@
-import React from "react";
-import CreateItemContext, { Item } from "./DisplayItemContext";
-import Product from "./Product";
+import React, { ReactNode } from 'react';
+import CreateItemContext, { ItemContextType } from './DisplayItemContext';
 
-const DisplayItem: React.FC = (): JSX.Element => {
+const DisplayItem: React.FC<{ children: ReactNode }> = ({ children }): JSX.Element => {
   return (
-    <CreateItemContext.Provider value={{Item}}>
-      <div>
-        <Product />
-      </div>
+    <CreateItemContext.Provider value={{ ItemContextType }}>
+      <div>{children}</div>
     </CreateItemContext.Provider>
-  )
+  );
 };
 
 export default DisplayItem;

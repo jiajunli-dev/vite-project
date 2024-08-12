@@ -1,26 +1,22 @@
 import { createContext, useContext } from "react";
 
 type ItemProp = {
-  item: string;
-  info: string;
-  category: string;
-  price: number;
+  carPrice: number;
+  toyPrice: number;
+  phonePrice: number;
 }
 
-type ItemContextType = {
-  Item: ItemProp;
+export const ItemContextType: ItemProp = {
+  carPrice: 10000,
+  toyPrice: 100,
+  phonePrice: 1000
 };
 
-export const Item: ItemProp = {
-  item: "Ice cream machine",
-  info: "Makes delicious ice cream",
-  category: "Machine",
-  price: 200
-};
+// const CreateItemContext = createContext<ItemContextType>({ Item });
+const CreateItemContext = createContext<{ ItemContextType: ItemProp } | undefined>(undefined);
 
-const CreateItemContext = createContext<ItemContextType>({ Item });
 
-export const useDisplayContext = (): ItemContextType => {
+export const useDisplayContext = (): { ItemContextType: ItemProp }  => {
   const context = useContext(CreateItemContext);
 
   if (!context) {
