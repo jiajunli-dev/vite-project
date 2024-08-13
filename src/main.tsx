@@ -15,14 +15,10 @@ import Product from './components/Product';
 import Phone from './components/Phone';
 import Toy from './components/Toy';
 import Car from './components/Car';
+import ListItems, { Items } from './components/ListItems';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <DisplayItem>
-      <Product />
-      <Car />
-      <Phone />
-      <Toy />
-    </DisplayItem>
+    <ListItems list={Items}/>
   </React.StrictMode>,
 );
