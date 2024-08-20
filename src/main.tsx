@@ -16,9 +16,13 @@ import Phone from './components/Phone';
 import Toy from './components/Toy';
 import Car from './components/Car';
 import ListItems, { Items } from './components/ListItems';
+import Flag from './components/Flag';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ListItems list={Items}/>
+    <Flag
+      renderProp={(name: string) => <h1>Hello world {name}!</h1>}
+      name="marcel"
+    />
   </React.StrictMode>,
 );
