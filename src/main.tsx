@@ -16,13 +16,9 @@ import Phone from './components/Phone';
 import Toy from './components/Toy';
 import Car from './components/Car';
 import ListItems, { Items } from './components/ListItems';
-import Flag from './components/Flag';
+import Flag from './renderprop/Flag';
+import Flyout from './flyout/Flyout';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <Flag
-      renderProp={(name: string) => <h1>Hello world {name}!</h1>}
-      name="marcel"
-    />
-  </React.StrictMode>,
+  <Flag renderProp={(name: string) => <h1>Hello {name}</h1>} name='Jiajun' />
 );
